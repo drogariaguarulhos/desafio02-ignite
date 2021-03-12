@@ -25,12 +25,10 @@ function checksCreateTodosUserAvailability(request, response, next) {
 
   if (user.todos.length >= 10) {
     if (user.pro === false)
-      return response
-        .status(403)
-        .json({
-          error:
-            "You have already reached the limit of available tasks for basic prano, hire the PRO plan to include more tasks!",
-        });
+      return response.status(403).json({
+        error:
+          "You have already reached the limit of available tasks for the basic plan, hire the PRO plan to include more tasks!",
+      });
   }
 
   return next();
